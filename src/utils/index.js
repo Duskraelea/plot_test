@@ -6,6 +6,8 @@ const find = ({ collection, key, value }) => {
     }
 }
 
+const findAll = ({ collection, key, value }) => collection.filter(object => object[`${key}`] === value)
+
 const replace = ({ collection, value, index }) => {
     let mutatedCollection = collection
     mutatedCollection.splice(index, 1, value)
@@ -15,5 +17,6 @@ const replace = ({ collection, value, index }) => {
 
 module.exports = {
     find,
+    findAll,
     replace
 };

@@ -1,7 +1,7 @@
-// const createParkingLot = require('../domains/createParkingLot');
+const getParkingLot = require('../domains/getParkingLot');
 
-const read = ({ currentParkingLot, condition}) => {
-    return currentParkingLot
+const read = ({ currentParkingLot, condition }) => {
+    getParkingLot({ currentParkingLot, condition })
 }
 
 module.exports = read
