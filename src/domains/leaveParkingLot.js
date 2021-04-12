@@ -23,9 +23,9 @@ const leaveParking = ({ parkingLot, outgoingCar }) => {
         })
         console.log(`Slot number ${slot.lot.slotNumber} is free`)
         return mutatedParkingLot
-    // if the slot is already free, return error message and return original lot
+    // if the slot is not exist, return error message and return original lot
     } else {
-        console.log(`The slot ${outgoingCar.slot} is already free`)
+        console.log(`The slot ${outgoingCar.slot} is not existed`)
         return parkingLot
     }
 }

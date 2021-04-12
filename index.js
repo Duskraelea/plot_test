@@ -6,6 +6,7 @@ const commandFile = './functional_spec/fixtures/file_input.txt';
 
 let masterParkingLot
 let searchCondition
+let lotData
 
 const init = () => {
     const commands = fs.readFileSync(commandFile,'utf-8')
@@ -30,7 +31,8 @@ const init = () => {
                 masterParkingLot = parkingLotController.remove({ parkingLot: masterParkingLot, outgoingCar: removeObject })
                 break;
             case 'status':
-                parkingLotController.list({ currentParkingLot: masterParkingLot })
+                const parkingLotStatus = parkingLotController.list({ currentParkingLot: masterParkingLot })
+                console.table(parkingLotStatus)
                 break;
             case 'registration_numbers_for_cars_with_colour':
                 searchCondition = {
@@ -38,7 +40,9 @@ const init = () => {
                     value: command.split(' ')[1],
                     expectResult: 'licensePlate'
                 }
-                parkingLotController.read({ currentParkingLot: masterParkingLot, condition: searchCondition })
+                lotData = parkingLotController.read({ currentParkingLot: masterParkingLot, condition: searchCondition })
+                console.log(lotData);
+
                 break;
             case 'slot_numbers_for_cars_with_colour':
                 searchCondition = {
@@ -46,7 +50,9 @@ const init = () => {
                     value: command.split(' ')[1],
                     expectResult: 'slotNumber'
                 }
-                parkingLotController.read({ currentParkingLot: masterParkingLot, condition: searchCondition })
+                lotData = parkingLotController.read({ currentParkingLot: masterParkingLot, condition: searchCondition })
+                console.log(lotData);
+
                 break;
             case 'slot_number_for_registration_number':
                 searchCondition = {
@@ -54,7 +60,9 @@ const init = () => {
                     value: command.split(' ')[1],
                     expectResult: 'slotNumber'
                 }
-                parkingLotController.read({ currentParkingLot: masterParkingLot, condition: searchCondition })
+                lotData = parkingLotController.read({ currentParkingLot: masterParkingLot, condition: searchCondition })
+                console.log(lotData);
+
                 break;
             default:
                 console.log('Error wrong command')

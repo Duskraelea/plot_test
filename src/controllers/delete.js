@@ -1,9 +1,8 @@
 const leaveParking = require('../domains/leaveParkingLot');
 
 const remove = ({ parkingLot, outgoingCar }) => {
-    if (!outgoingCar.slot) throw new Error('Please enter valid slot')
-    const removedParkingLot = leaveParking({ parkingLot, outgoingCar })
-    return removedParkingLot
+    if (isNaN(outgoingCar.slot)) throw new Error('Please enter valid slot')
+    return leaveParking({ parkingLot, outgoingCar })
 }
 
 module.exports = remove

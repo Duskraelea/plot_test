@@ -2,7 +2,7 @@
 const getAllParkingLot = require('../domains/getAllParkingLot');
 
 const list = ({ currentParkingLot }) => {
-    getAllParkingLot({ currentParkingLot })
+    return getAllParkingLot({ currentParkingLot })
 }
 
 module.exports = list

@@ -16,7 +16,7 @@ const getAllParkingLot = ({ currentParkingLot }) => {
             Colour: item.color
         }
     })
-    console.table(objectToShow)
+    return objectToShow
 }
 
 module.exports = getAllParkingLot

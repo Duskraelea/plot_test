@@ -1,9 +1,8 @@
 const createParkingLot = require('../domains/createParkingLot');
 
 const create = ({ slot }) => {
-    if (typeof parseInt(slot) !== 'number') throw new Error('Please enter valid number')
-    const createdParkingLot = createParkingLot({ parkingLotSlot: slot })
-    return createdParkingLot
+    if (isNaN(slot)) throw new Error('Please enter valid number')
+    return createParkingLot({ parkingLotSlot: slot })
 }
 
 module.exports = create

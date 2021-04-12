@@ -12,8 +12,7 @@ const getParkingLotByCondition = ({ currentParkingLot, condition }) => {
         result.push(lot[`${condition.expectResult}`])
     })
 
-    if (result.length > 0) console.log(result.join(', '))
-    else console.log('Not found')
+    return result.length > 0 ? result.join(', ') : 'Not found'
 }
 
 module.exports = getParkingLotByCondition

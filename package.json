@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage --watchAll"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,9 @@
   "homepage": "https://github.com/Duskraelea/plot_test#readme",
   "devDependencies": {
     "jest": "^26.6.3"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverageFrom": ["src/**/*.js"]
   }
 }
