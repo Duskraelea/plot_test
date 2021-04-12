@@ -1,9 +1,9 @@
-const createParkingLot = require('../domains/createParkingLot');
+const leaveParking = require('../domains/leaveParkingLot');
 
-const create = (parkingLotSlot) => {
-    if (typeof parseInt(parkingLotSlot) !== 'number') throw new Error('Please enter valid number')
-    const createdParkingLot = createParkingLot({ parkingLotSlot })
-    return createdParkingLot
+const remove = ({ parkingLot, outgoingCar }) => {
+    if (!outgoingCar.slot) throw new Error('Please enter valid slot')
+    const removedParkingLot = leaveParking({ parkingLot, outgoingCar })
+    return removedParkingLot
 }
 
-module.exports = create
+module.exports = remove

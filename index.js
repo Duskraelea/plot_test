@@ -13,11 +13,9 @@ const init = () => {
     arrayOfCommands.forEach(command => {
         switch (command.split(' ')[0]) {
             case 'create_parking_lot':
-                console.log('CREATE')
                 masterParkingLot = parkingLotController.create({ slot: command.split(' ')[1] })
                 break;
             case 'park':
-                console.log('PARK')
                 const updateObject = {
                     licensePlate: command.split(' ')[1],
                     color: command.split(' ')[2]
@@ -25,10 +23,13 @@ const init = () => {
                 masterParkingLot = parkingLotController.update({ parkingLot: masterParkingLot, incomingCar: updateObject })
                 break;
             case 'leave':
-                console.log('masterParkingLot', masterParkingLot)
-                console.log('LEAVE')
+                const removeObject = {
+                    slot: command.split(' ')[1]
+                }
+                masterParkingLot = parkingLotController.remove({ parkingLot: masterParkingLot, outgoingCar: removeObject })
                 break;
             case 'status':
+                console.log('masterParkingLot', masterParkingLot)
                 console.log('CHECKSTATUS')
                 break;
             case 'registration_numbers_for_cars_with_colour':
